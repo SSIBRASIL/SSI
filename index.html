@@ -53,6 +53,16 @@
   </style>
 </head>
 <body>
+
+<!-- LOGIN NO TOPO -->
+<div style="background:#f0f0f0; padding:10px; text-align:right;">
+  <input type="email" id="email" placeholder="Email" required style="padding:5px;">
+  <input type="password" id="password" placeholder="Senha" required style="padding:5px;">
+  <button onclick="login()">Entrar</button>
+  <button onclick="signup()">Cadastrar</button>
+  <span id="auth-msg" style="color:red; padding-left:10px;"></span>
+</div>
+
   
   <header style="background: linear-gradient(to right, #007BFF, #0056b3); color: white; padding: 60px 20px; text-align: center;">
     <h1 style="font-size: 3em; margin-bottom: 0.3em;">Sejam Bem-vindos à</h1>
@@ -74,45 +84,12 @@
     </div>
   </main>
   
-  <footer style="background-color: #f0f0f0; padding: 20px 10px; text-align: center; font-size: 1.1em;">
-    <div style="margin-bottom: 10px;">
-      📧 <a href="mailto:suporte.ssi.br@gmail.com" style="color: #007BFF; text-decoration: none;">suporte.ssi.br@gmail.com</a>
-    </div>
-    <div>
-      📱 <a href="https://wa.me/5511954897008" style="color: #28A745; text-decoration: none;">(11) 95489-7008</a>
-    </div>
+  
+  
+  <footer style="position:fixed; bottom:0; left:0; width:100%; background:#0a2540; color:white; text-align:center; padding:15px 10px;">
+    SSI BRASIL © 2025 - Todos os direitos reservados |
+    <a href="mailto:suporte.ssi.br@gmail.com" style="color:white; text-decoration:underline;">suporte.ssi.br@gmail.com</a> |
+    <a href="https://wa.me/5511981374513" target="_blank" style="color:white; text-decoration:underline;">(11) 98137-4513</a>
   </footer>
-
-
-<!-- Login Supabase -->
-<section id="login" style="padding: 40px; text-align: center; background-color: #f0f0f0;">
-  <h2>Login de Acesso</h2>
-  <input type="email" id="email" placeholder="Email" style="padding:10px; margin:5px;" required>
-  <input type="password" id="password" placeholder="Senha" style="padding:10px; margin:5px;" required>
-  <button onclick="login()" style="padding:10px 20px;">Entrar</button>
-  <p id="login-msg" style="color: red;"></p>
-</section>
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script>
-  const supabase = supabase.createClient(
-    'https://motqggvxplegckxuvujc.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vdHFnZ3Z4cGxlZ2NreHV2dWpjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAzOTY4MjMsImV4cCI6MjA2NTk3MjgyM30.C1DLQis5upgmaPeTXgt-rMztlTeAm5ODKjVC_XhC4-o'
-  );
-
-  async function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-
-    if (error) {
-      document.getElementById("login-msg").innerText = "Erro: " + error.message;
-    } else {
-      window.location.href = "nosso-parceiro.html";
-    }
-  }
-</script>
-
 </body>
 </html>
